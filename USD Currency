@@ -1,0 +1,12 @@
+import requests
+import json
+import pprint
+
+base="USD"
+out_curr="TRY"
+start_date="2021-01-01"
+end_date="2021-01-10"
+url = 'https://api.exchangerate.host/timeseries?base={0}&start_date={1}&end_date={2}&symbols={3}'.format(base,start_date,end_date,out_curr)
+response = requests.get(url)
+data = response.json()
+pprint.pprint(data["rates"])
